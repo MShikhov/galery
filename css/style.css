@@ -59,7 +59,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 95vw;
+    max-width: 80vw;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -163,18 +163,36 @@ body {
 }
 
 .gallery__image {
-    max-width: 100%;
-    object-fit: cover;
-    max-height: 500px;
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
 }
 
 .gallery__btn {
     position: absolute;
-    right: 20px;
-    top: 20px;
+    margin-left: 80%;
+    top: 10px;
     z-index: 5;
 }
 
 .no-photo {
     text-align: center;
+}
+
+@media (max-width: 767px) {
+    .gallery__image {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 650) {
+    .gallery__image {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery__image {
+        width: 20rem;
+    }
 }
