@@ -47,7 +47,6 @@ fileInput.addEventListener('change', (e) => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    onClick = window.location.reload();
     let file = form.querySelector('.file__input').files[0];
 
     let type = file.type;
@@ -60,6 +59,9 @@ form.addEventListener('submit', (e) => {
         fetch(`${location.origin}/helpers/addImages.php`, {
                 method: 'POST',
                 body: formData
+            })
+            .then(function() {
+                window.location.reload()
             })
             .then(function(response) {
                 return response.text()
@@ -76,10 +78,7 @@ form.addEventListener('submit', (e) => {
 `;
 
                 document.querySelector('.no-photo').remove();
-
                 gallery.insertAdjacentHTML('afterbegin', fileHtml);
-
-
                 formBtn.setAttribute('disabled', true);
                 fileInput.closest('.file').querySelector('.file__text').textContent = 'Выберите файл в формате jpg или png';
                 fileInput.closest('.file').querySelector('.file__name').textContent = '';
