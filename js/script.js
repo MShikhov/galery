@@ -52,7 +52,10 @@ form.addEventListener('submit', (e) => {
     let type = file.type;
     let size = file.size;
 
-    if (size <= 50000000 && (type == 'image/jpg' || type == 'image/png' || type == 'image/jpeg' || type == 'image/pds' || type == 'image/tif' || type == 'image/gif' || type == 'image/bmp')) {
+    if (true
+        /* size <= 500000000*/
+        /* && (type == 'image/jpg' || type == 'image / png ' || type == 'image / jpeg ' || type == 'image / pds ' || type == 'image / tif ' || type == 'image / gif ' || type == 'image / bmp ')*/
+    ) {
         let formData = new FormData(form);
         formData.append('file', file);
 
@@ -69,13 +72,13 @@ form.addEventListener('submit', (e) => {
             .then(function(body) {
 
                 let fileHtml = `
-<li class="gallery__item">
-<img src="/uploads/${file.name}" alt="image" class="gallery__image">
-<button class="gallery__btn btn">
-Удалить
-</button>
-</li>
-`;
+                                <li class="gallery__item">
+                                <img src="/uploads/${file.name}" alt="image" class="gallery__image">
+                                <button class="gallery__btn btn">
+                                Удалить
+                                </button>
+                                </li>
+                                `;
 
                 document.querySelector('.no-photo').remove();
                 gallery.insertAdjacentHTML('afterbegin', fileHtml);
